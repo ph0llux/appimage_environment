@@ -33,7 +33,7 @@ impl Environment {
 	///If the binary lies into an appimage, this method returns the appimage environment variable "APPIMAGE".
 	///See [AppImage documentation](https://docs.appimage.org/packaging-guide/environment-variables.html)
 	///for more details.
-	pub fn appimage(self) -> io::Result<String> {
+	pub fn appimage() -> io::Result<String> {
 		env::var(appimage_environment::ENV_VAR_APPIMAGE).to_io_result()
 	}
 
@@ -52,10 +52,6 @@ impl Environment {
 	}
 
 	///If the binary lies into an appimage, this method will attempt to return the full path of the given toolname.
-	///# Example
-	///	fn main() {
-	///		println!("Path of lspci inside of the appimage: {}", Environment::get_path_of("lspci"));
-	///	}
 	pub fn get_path_of<S: Into<String>>(toolname: S) -> io::Result<PathBuf> {
 		let toolname = toolname.into();
 		let appdir = Environment::appdir()?;
