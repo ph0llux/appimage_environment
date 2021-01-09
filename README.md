@@ -9,8 +9,8 @@ mkdir -p appimage_dir/{bin,usr/local/bin,usr/bin,usr/games,data,web}
 ```
 ... and you have to add some needed stuff for appimages (yes I know...this is an annoying fact for me too):
 ```bash
-wget "https://raw.githubusercontent.com/ph0llux/appimage_environment/main/appimage_needed_stuff/init.desktop" -O appimage_dir/init.desktop
-wget "https://raw.githubusercontent.com/ph0llux/appimage_environment/main/appimage_needed_stuff/icon.png" -O appimage_dir/icon.png
+wget "https://raw.githubusercontent.com/ph0llux/appimage_environment/main/appimage_example_stuff/init.desktop" -O appimage_dir/init.desktop
+wget "https://raw.githubusercontent.com/ph0llux/appimage_environment/main/appimage_example_stuff/icon.png" -O appimage_dir/icon.png
 ```
 
 ... now copy some example stuff:
