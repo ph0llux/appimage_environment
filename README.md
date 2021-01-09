@@ -32,9 +32,11 @@ create a cargo project in normal ways and add some example code to main.rs (don'
 extern crate appimage_environment;
 
 use appimage_environment::Environment;
+use appimage_environment::InternalCommand;
 
 fn main() {
     println!("{:?}", Environment::get_path_of("get_ip_addr"));
+    println!("{:?}", InternalCommand::get_stdout_from_call("get_ip_addr"));
 }
 ```
 
