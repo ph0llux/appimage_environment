@@ -1,5 +1,5 @@
 /************************************************************************
-* pk:7edc96d26366132622a5d959f17ac4bcf92ac532c29e4865c8a17a477f6e0e53
+* pk:5f6bee707b3d82942553bddac5fb45fb4b49d52cd79f35320459220c006d11e0
 ************************************************************************/
 /*!
 This crate contains some structs and functions to handle the tools, which are included in the AppImage.
@@ -24,6 +24,8 @@ const ENV_VAR_OWD: &str = "OWD";
 const ENV_VAR_ARG0: &str = "ARGV0";
 
 /// contains all folders inside the appimage, which can contain executable binaries.
+/// Currently folllowing paths inside the appimage are interpreted as binary-paths:
+/// */usr/local/bin*, */usr/bin*, */bin*, */usr/games*.
 pub const PATH: [&'static str; 4] = [ "/usr/local/bin", "/usr/bin", "/bin", "/usr/games" ];
 
 // - SPECIAL FOLDERS

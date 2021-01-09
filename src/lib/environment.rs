@@ -1,5 +1,5 @@
 /************************************************************************
-* pk:6ff32ea3535c14e0c1f3cd030dc853856114237c054f92815efdbeeee99e23bc
+* pk:c4e0aa9cc15239b26be0e68444b714d1e3b62d6773b13672ef9d33dd4ff6529a
 ************************************************************************/
 /*!
 Environment
@@ -84,6 +84,7 @@ impl Environment {
 	}
 
 	/// This function returns all paths of binaries which are in the appropriate binary paths of the appimage.
+	/// The appropriate paths can be found in [PATH](constant.PATH.html).
 	pub fn get_all_bins() -> io::Result<Vec<PathBuf>> {
 		let mut binaries = Vec::new();
 		let appdir = Environment::appdir()?;
