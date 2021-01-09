@@ -5,12 +5,12 @@ Interact in simple ways within an AppImage as a Rust program.
 
 You could start by building a simple appimage-directory, with following structure:
 ```bash
-mkdir -p appimage_dir/{bin, usr/local/bin, usr/bin, usr/games, data, web}
+mkdir -p appimage_dir/{bin,usr/local/bin,usr/bin,usr/games,data,web}
 ```
 ... and you have to add some needed stuff for appimages (yes I know...this is an annoying fact for me too):
 ```bash
-wget https://raw.githubusercontent.com/ph0llux/appimage_environment/main/appimage_needed_stuff/init.desktop -O appimage_dir/init.desktop
-wget https://raw.githubusercontent.com/ph0llux/appimage_environment/main/appimage_needed_stuff/icon.png -O appimage_dir/icon.png
+wget "https://raw.githubusercontent.com/ph0llux/appimage_environment/main/appimage_needed_stuff/init.desktop" -O appimage_dir/init.desktop
+wget "https://raw.githubusercontent.com/ph0llux/appimage_environment/main/appimage_needed_stuff/icon.png" -O appimage_dir/icon.png
 ```
 
 ... now copy some example stuff:
@@ -43,7 +43,7 @@ cp target/release/project_named_target ../appimage_dir/AppRun #your executable m
 
 Now you can build your appimage and execute (example is for x86_64)!
 ```bash
-wget https://github.com/AppImage/AppImageKit/releases/download/12/appimagetool-x86_64.AppImage
+wget "https://github.com/AppImage/AppImageKit/releases/download/12/appimagetool-x86_64.AppImage"
 chmod +x appimagetool-x86_64.AppImage
 ./appimagetool-x86_64.AppImage -n appimage_dir
 ```

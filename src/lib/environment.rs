@@ -1,5 +1,5 @@
 /************************************************************************
-* pk:a3b61db438c1bc2fa3cc1c40738fc7b9ae6f09d7de9435f1ea4ff1c5572a4c4d
+* pk:6ff32ea3535c14e0c1f3cd030dc853856114237c054f92815efdbeeee99e23bc
 ************************************************************************/
 /*!
 Environment
@@ -18,40 +18,49 @@ use walkdir::WalkDir;
 use phollaits::{ToIOResult};
 use is_executable::IsExecutable;
 
-///The struct Environment contains some environment-informations about the appimage. For example, you can get
-///the values of the appimage environment variables or the HashMap of into the appimage included programs.
+/// The struct Environment contains some environment-informations about the appimage. For example, you can get
+/// the values of the appimage environment variables or the HashMap of into the appimage included programs.
 pub struct Environment;
 
 impl Environment {
-	///If the binary lies into an appimage, this method returns the appimage environment variable "APPDIR" (absolute
+	/// If the binary lies into an appimage, this method returns the appimage environment variable "APPDIR" (absolute
 	/// path to AppImage file, with symlinks resolved) See [AppImage documentation](https://docs.appimage.org/packaging-guide/environment-variables.html)
-	///for more details.
+	/// for more details.
 	pub fn appdir() -> io::Result<String> {
 		env::var(appimage_environment::ENV_VAR_APPDIR).to_io_result()
 	}
 
-	///If the binary lies into an appimage, this method returns the appimage environment variable "APPIMAGE".
-	///See [AppImage documentation](https://docs.appimage.org/packaging-guide/environment-variables.html)
-	///for more details.
+	/// If the binary lies into an appimage, this method returns the appimage environment variable "APPIMAGE".
+	/// See [AppImage documentation](https://docs.appimage.org/packaging-guide/environment-variables.html)
+	/// for more details.
 	pub fn appimage() -> io::Result<String> {
 		env::var(appimage_environment::ENV_VAR_APPIMAGE).to_io_result()
 	}
 
-	///If the binary lies into an appimage, this method returns the appimage environment variable "OWD".
-	///See [AppImage documentation](https://docs.appimage.org/packaging-guide/environment-variables.html)
-	///for more details.
+	/// If the binary lies into an appimage, this method returns the appimage environment variable "OWD".
+	/// See [AppImage documentation](https://docs.appimage.org/packaging-guide/environment-variables.html)
+	/// for more details.
 	pub fn owd() -> io::Result<String> {
 		env::var(appimage_environment::ENV_VAR_OWD).to_io_result() //same output as PWD
 	}
 
-	///If the binary lies into an appimage, this method returns the appimage environment variable "ARGV0".
-	///See [AppImage documentation](https://docs.appimage.org/packaging-guide/environment-variables.html)
-	///for more details.
+	/// If the binary lies into an appimage, this method returns the appimage environment variable "ARGV0".
+	/// See [AppImage documentation](https://docs.appimage.org/packaging-guide/environment-variables.html)
+	/// for more details.
 	pub fn argv0() -> io::Result<String> {
 		env::var(appimage_environment::ENV_VAR_ARG0).to_io_result()
 	}
 
-	///If the binary lies into an appimage, this method will attempt to return the full path of the given toolname.
+	/// If the binary lies into an appimage, this method will attempt to return the full path of the given toolname.
+	/// # Example
+	/// ```rustc
+	/// extern crate appimage_environment;
+	/// use appimage_environment::Environment;
+	/// 
+	///	fn main() {
+	///		println!("My examplebinary: {:?}", Environment::get_path_of("lspci"));
+	/// }
+	/// ```
 	pub fn get_path_of<S: Into<String>>(toolname: S) -> io::Result<PathBuf> {
 		let toolname = toolname.into();
 		let appdir = Environment::appdir()?;
@@ -74,7 +83,7 @@ impl Environment {
 		return Err(io::Error::new(io::ErrorKind::Other, appimage_environment::NOT_FOUND));
 	}
 
-	///TODO: Documentation
+	/// This function returns all paths of binaries which are in the appropriate binary paths of the appimage.
 	pub fn get_all_bins() -> io::Result<Vec<PathBuf>> {
 		let mut binaries = Vec::new();
 		let appdir = Environment::appdir()?;
@@ -95,14 +104,14 @@ impl Environment {
 		Ok(binaries)
 	}
 
-	///TODO: Documentation
+	/// This function returns the path of "/data" of the appimage.
 	pub fn get_data_path() -> io::Result<PathBuf> {
 		let appdir = Environment::appdir()?;
 		let path = format!("{}{}", appdir, appimage_environment::SPECIAL_PATH_DATA);
 		Ok(Path::new(&path).to_path_buf())
 	}
 
-	///TODO: Documentation
+	/// This function returns the path of "/web" of the appimage.
 	pub fn get_web_path() -> io::Result<PathBuf> {
 		let appdir = Environment::appdir()?;
 		let path = format!("{}{}", appdir, appimage_environment::SPECIAL_PATH_WEB);
