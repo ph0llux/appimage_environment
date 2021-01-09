@@ -1,5 +1,5 @@
 /************************************************************************
-* pk:5f6bee707b3d82942553bddac5fb45fb4b49d52cd79f35320459220c006d11e0
+* pk:25339f3cbb81d6cf08b8ce92b71b184a17f64387c1d432f77cd8eb9bd3ee82dc
 ************************************************************************/
 /*!
 This crate contains some structs and functions to handle the tools, which are included in the AppImage.
@@ -12,10 +12,8 @@ extern crate is_executable;
 
 // - modules
 mod environment;
-//mod internal_command;
 
 pub use environment::*;
-//pub use internal_command::*;
 
 // - Environment Vars
 const ENV_VAR_APPIMAGE: &str = "APPIMAGE";
@@ -34,6 +32,3 @@ const SPECIAL_PATH_WEB: &str = "/web";
 
 // - Errors
 const NOT_FOUND: &str = "not found";
-
-// - Separators
-//const SEPARATOR_DOUBLE_QUOTE: &str = "\"";
