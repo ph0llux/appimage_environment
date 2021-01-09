@@ -1,6 +1,6 @@
 [package]
 name = "appimage_environment"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["ph0llux <ph0llux@pm.me>"]
 edition = "2018"
 publish = true
@@ -9,6 +9,7 @@ homepage = "https://github.com/ph0llux/appimage_environment"
 repository = "https://github.com/ph0llux/appimage_environment"
 readme = "README.md"
 exclude = ["build/*", "doc/*", "appimage_example_stuff"]
+documentation = "https://docs.rs/appimage_environment"
 description = """
 This crate contains some structs and functions to handle the tools, which are included in the AppImage.
 """

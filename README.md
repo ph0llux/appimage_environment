@@ -1,8 +1,10 @@
-<img src="https://img.shields.io/crates/d/appimage_environment?style=for-the-badge"/> <img src="https://img.shields.io/crates/v/appimage_environment?color=blue&logo=Rust&style=for-the-badge"/> <img src="https://img.shields.io/crates/v/appimage_environment?color=blue&label=docs&logo=Rust&style=for-the-badge"/> <img src="https://img.shields.io/crates/l/appimage_environment?style=for-the-badge"/> 
+<img src="https://img.shields.io/crates/d/appimage_environment?style=for-the-badge"/> <img src="https://img.shields.io/crates/v/appimage_environment?color=blue&logo=Rust&style=for-the-badge" href="https://crates.io/crates/appimage_environment" /> <img src="https://img.shields.io/crates/v/appimage_environment?color=blue&label=docs&logo=Rust&style=for-the-badge" href="https://docs.rs/appimage_environment"/> <img src="https://img.shields.io/crates/l/appimage_environment?style=for-the-badge"/> 
 
 
 # appimage_environment
 Interact in simple ways within an AppImage as a Rust program.
+
+[Documentation](https://docs.rs/appimage_environment)
 
 ## Example usage
 
