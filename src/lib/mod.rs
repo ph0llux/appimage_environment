@@ -1,5 +1,5 @@
 /************************************************************************
-* pk:25339f3cbb81d6cf08b8ce92b71b184a17f64387c1d432f77cd8eb9bd3ee82dc
+* pk:f03b8be823ec01b0d6112c0001d4bcab44d5aa24280759788019e24ea8a3ffb7
 ************************************************************************/
 /*!
 This crate contains some structs and functions to handle the tools, which are included in the AppImage.
@@ -12,8 +12,10 @@ extern crate is_executable;
 
 // - modules
 mod environment;
+mod internal_command;
 
 pub use environment::*;
+pub use internal_command::*;
 
 // - Environment Vars
 const ENV_VAR_APPIMAGE: &str = "APPIMAGE";
@@ -32,3 +34,10 @@ const SPECIAL_PATH_WEB: &str = "/web";
 
 // - Errors
 const NOT_FOUND: &str = "not found";
+const ERROR_CMDLINE_QUOTES: &str = "There are a wrong number of quotes.";
+const ERROR_EMPTY_STRING: &str = "Empty string.";
+const ERROR_NOT_SET: &str = "not set.";
+
+// - SEPARATORS
+const SEPARATOR_DOUBLE_QUOTE: &str = "\"";
+const SEPARATOR_PIPE: &str = "|";
