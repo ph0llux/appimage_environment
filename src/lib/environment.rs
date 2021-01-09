@@ -19,7 +19,7 @@ use phollaits::{ToIOResult};
 use is_executable::IsExecutable;
 
 /// The struct Environment contains some environment-informations about the appimage. For example, you can get
-/// the values of the appimage environment variables or the HashMap of into the appimage included programs.
+/// the values of the appimage environment variables.
 pub struct Environment;
 
 impl Environment {
